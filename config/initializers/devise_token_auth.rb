@@ -22,7 +22,8 @@ DeviseTokenAuth.setup do |config|
                           :'client' => 'client',
                           :'expiry' => 'expiry',
                           :'uid' => 'uid',
-                          :'token-type' => 'token-type' }
+                          :'token-type' => 'token-type',
+                          :'authorization' => 'authorization'}
 
   # Sets the max number of concurrent devices per user, which is 10 by default.
   # After this limit is reached, the oldest tokens will be removed.
@@ -70,5 +71,5 @@ DeviseTokenAuth.setup do |config|
   # By default DeviseTokenAuth will not send confirmation email, even when including
   # devise confirmable module. If you want to use devise confirmable module and
   # send email, set it to true. (This is a setting for compatibility)
-  # config.send_confirmation_email = true
+  config.send_confirmation_email = false
 end
