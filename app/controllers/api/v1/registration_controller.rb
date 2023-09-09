@@ -2,6 +2,8 @@ class Api::V1::RegistrationController < ApplicationController
 
     def create
         user = User.new(email: params[:email], password: params[:password], name: params[:name])
+        # confirmed_atに現在のタイムスタンプを設定
+        # user.confirmed_at = Time.now
         if user.save
           @resource = user # @resourceにuserを設定
           set_token_info # set_token_infoメソッドを呼び出す
@@ -9,7 +11,7 @@ class Api::V1::RegistrationController < ApplicationController
         else
           render json: user.errors.full_messages, status: :unprocessable_entity
         end
-      end
+    end
 
 
     private
